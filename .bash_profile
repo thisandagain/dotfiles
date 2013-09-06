@@ -1,11 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
-# Load the shell dotfiles
-for file in ~/.{exports,aliases}; do
-    [ -r "$file" ] && source "$file"
-done
-unset file
+# Load the shell aliases
+. ~/.aliases
 
 # Ye' olde minimalist prompt
 export PS1="\W$ "
