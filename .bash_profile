@@ -2,7 +2,7 @@
 export PATH="$HOME/bin:$PATH"
 
 # Load the shell dotfiles
-for file in ~/.{aliases}; do
+for file in ~/.{exports,aliases}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
