@@ -8,9 +8,12 @@ alias sudo='sudo '
 # Gzip-enabled `curl`
 alias gurl='curl --compressed'
 
+# Flush DNS cache
+alias flush="dscacheutil -flushcache"
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ifconfig | grep 'inet '"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # View HTTP traffic
@@ -30,6 +33,8 @@ alias status='git status'
 alias branch='git branch'
 alias checkout='git checkout'
 alias remotes='git remote -v'
+alias log='git log'
+alias diff='git diff'
 
 # ############################
 # Navigation & shortcuts
@@ -40,12 +45,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias mysrc='cd /Users/asliwinski/Documents/Projects'
-alias mygo='cd /Users/asliwinski/Documents/Go'
+alias src='cd /Users/asliwinski/Source'
+alias docs='cd /Users/asliwinski/Documents/'
 
 # ############################
 # Development
 # ############################
 
-alias subl='sublime'
-alias gen='generator'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
