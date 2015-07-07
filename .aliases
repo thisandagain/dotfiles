@@ -9,7 +9,7 @@ alias sudo='sudo '
 alias gurl='curl --compressed'
 
 # Flush DNS cache
-alias flush="dscacheutil -flushcache"
+alias flush="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -21,7 +21,10 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # View list of all active ports
-alias bound='lsof -i'
+alias bound="lsof -i"
+
+# Simple HTTP server
+alias http="python -m SimpleHTTPServer"
 
 # ############################
 # Git
@@ -35,15 +38,17 @@ alias checkout='git checkout'
 alias remotes='git remote -v'
 alias log='git log'
 alias diff='git diff'
+alias undo='git reset --soft HEAD~1'
+alias squash='git rebase -i'
 
 # ############################
 # Navigation & shortcuts
 # ############################
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 alias src='cd /Users/asliwinski/Source'
 alias docs='cd /Users/asliwinski/Documents/'
@@ -53,3 +58,12 @@ alias docs='cd /Users/asliwinski/Documents/'
 # ############################
 
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias lint='jsonlint'
+alias pg='postgres -D /usr/local/var/postgres'
+alias julia='/Applications/Julia-0.3.2.app/Contents/Resources/julia/bin/julia'
+
+alias py='python'
+alias dj='python manage.py'
+
+alias devices='adb devices'
+alias forward='adb forward tcp:6000 localfilesystem:/data/local/debugger-socket'
